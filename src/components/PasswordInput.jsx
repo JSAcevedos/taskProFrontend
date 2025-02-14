@@ -11,7 +11,7 @@ export default function PasswordInput({label, ...props}) {
     <div>
         <label>{label}</label>
         <div className="flex bg-white rounded-sm border border-balck">
-            <input className={inputClass} type={showPassword ? "text" : "password"} {...props} required/>
+            <input id="password" className={inputClass} type={showPassword ? "text" : "password"} {...props} required/>
             <button type="button" onClick={togglePasswordVisibility} className="px-3 py-2 text-sm text-gray-600 hover:bg-gray-200">
             {showPassword ? "Hide" : "Show"}
             </button>
