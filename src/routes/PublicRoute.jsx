@@ -1,9 +1,10 @@
-import { Navigate } from 'react-router';
+import { Outlet } from 'react-router';
+import NotFound from '../pages/NotFound';
 
-const PublicRoute = ({ element: Component }) => {
+const PublicRoute = () => {
   const token = localStorage.getItem('token');
 
-  return !token ? <Component /> : <Navigate to="/tasks" />;
+  return !token ? <Outlet /> : <NotFound />;
 };
 
 export default PublicRoute;
