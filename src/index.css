@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+/*Color palette: https://colorhunt.co/palette/5d8736809d3ca9c46cf4ffc3*/
+
+html, body, #root {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@theme {
+  --color-primary: #5D8736;
+}
