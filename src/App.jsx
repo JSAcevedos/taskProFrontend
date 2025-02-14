@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Tasks from './pages/Tasks';
 import NotFound from './pages/NotFound.jsx';
 import Register from "./pages/Register.jsx";
+import { ToastContainer } from "react-toastify";
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
 
         </Routes>
       </BrowserRouter>
+      <ToastContainer />
     </>
   )
 }

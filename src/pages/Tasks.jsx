@@ -1,7 +1,7 @@
 export default function Tasks() {
   return (
     <div>
-        <H1></H1>
+        <h1>TASKS</h1>
     </div>
   )
 }
