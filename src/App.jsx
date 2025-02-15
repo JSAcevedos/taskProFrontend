@@ -6,6 +6,9 @@ import Tasks from './pages/Tasks';
 import NotFound from './pages/NotFound.jsx';
 import Register from "./pages/Register.jsx";
 import { ToastContainer } from "react-toastify";
+import Layout from "./components/Layout.jsx";
+import RecoveryPassword from "./pages/RecoveryPassword.jsx";
+import ResetPassword from "./pages/ResetPassword.jsx";
 
 function App() {
 
@@ -15,12 +18,20 @@ function App() {
         <Routes>
 
           <Route element={<PublicRoute/>}>
+
             <Route path="/" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/recovery-password" element={<RecoveryPassword />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
+
           </Route>
 
           <Route element={<PrivateRoute />}>
-            <Route path="/tasks" element={<Tasks />} />
+            <Route element={<Layout />}>
+
+              <Route path="/tasks" element={<Tasks />} />
+
+            </Route>
           </Route>
 
           <Route path="*" element={<NotFound />} /> 

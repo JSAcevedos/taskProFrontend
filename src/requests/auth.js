@@ -15,3 +15,25 @@ export const register = async (name, email, password) => {
         password: password
     })
 }
+
+export const recoverPassword = async (email, userId) => {
+    return axios.post(config.apiUrl + '/user/recover-password', {
+        email: email,
+        userId: userId
+    })
+}
+
+export const resetPassword = async (password) => {
+    const token = localStorage.getItem('resetToken')
+
+    return axios.patch(config.apiUrl + '/user/reset-password', 
+        {
+            password: password
+        },
+        {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        }
+    )
+}

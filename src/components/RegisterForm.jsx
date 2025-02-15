@@ -41,7 +41,7 @@ export default function RegisterForm({handleLoading}) {
         <form className="space-y-5 w-full bg-quaternary p-[15%] rounded-md text-black" onSubmit={handleSubmit}>
             <Input id="name" placeholder="Louis Smith" label="Name:" type="text"/>
             <Input id="email" placeholder="louis.smith@email.com" label="Email:" type="email"/>
-            <PasswordInput id="password" placeholder="New password" label="Password" pattern = "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"/>
+            <PasswordInput id="password" placeholder="New password" label="Password" mustValidateFormat={true}/>
             <PasswordInput id="confirmPassword" placeholder="Confirm new password" label="Confirm Password"/>
             <Button value="Register" type="submit" darkMode={true} />
         </form>

@@ -1,18 +1,18 @@
-import { useState } from "react";
-import { login } from "../requests/auth";
-import Button from "./Button";
-import Input from "./Input";
-import Loading from "./Loading";
-import PasswordInput from "./PasswordInput";
-import { useNavigate } from "react-router";
+import { useState } from "react"
+import { login } from "../requests/auth"
+import Button from "./Button"
+import Input from "./Input"
+import Loading from "./Loading"
+import PasswordInput from "./PasswordInput"
+import { useNavigate } from "react-router"
 
 export default function LoginForm() {
-  const inputContainerClass = "flex flex-col text-xl";
-  const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
+  const inputContainerClass = "flex flex-col text-xl"
+  const [isLoading, setIsLoading] = useState(false)
+  const navigate = useNavigate()
   
   const handleLoading = (state) => {
-    setIsLoading(() => state);
+    setIsLoading(() => state)
   }
 
   const handleSubmit = async (event) => {
@@ -47,8 +47,8 @@ export default function LoginForm() {
           </div>
           <Button value="Login" type="submit" />
           <div className="text-tertiary underline flex flex-col">
-            <a className="hover:text-white" href="/recovery-password">Forgot your password?</a>
             <a className="hover:text-white" href="/register">Dont have an account? Register here</a>
+            <a className="hover:text-white" href="/recovery-password">Forgot your password?</a>
           </div>
         </form>
       </div>
