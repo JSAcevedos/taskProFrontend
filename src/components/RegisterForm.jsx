@@ -1,12 +1,12 @@
-import { toast } from "react-toastify";
-import { register } from "../requests/auth";
-import Button from "./Button";
-import Input from "./Input";
-import PasswordInput from "./PasswordInput";
-import { useNavigate } from "react-router";
+import { toast } from "react-toastify"
+import { register } from "../requests/auth"
+import Button from "./Button"
+import Input from "./Input"
+import PasswordInput from "./PasswordInput"
+import { Link, useNavigate } from "react-router"
 
 export default function RegisterForm({handleLoading}) {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleSubmit = async (event) => {
     handleLoading(true)
@@ -37,7 +37,7 @@ export default function RegisterForm({handleLoading}) {
 
   return (
     <div>
-        <h1 className="text-3xl mb-7 text-center text-white">Register in <a href="/" className="text-tertiary hover:text-secondary underline">TaskPro</a></h1>
+        <h1 className="text-3xl mb-7 text-center text-white">Register in <Link to="/" className="text-tertiary hover:text-secondary underline">TaskPro</Link></h1>
         <form className="space-y-5 w-full bg-quaternary p-[15%] rounded-md text-black" onSubmit={handleSubmit}>
             <Input id="name" placeholder="Louis Smith" label="Name:" type="text"/>
             <Input id="email" placeholder="louis.smith@email.com" label="Email:" type="email"/>

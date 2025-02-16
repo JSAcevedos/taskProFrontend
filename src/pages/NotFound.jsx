@@ -1,5 +1,5 @@
 export default function NotFound() {
-  const token = localStorage.getItem('authToken');
+  const token = localStorage.getItem('authToken')
   return (
     <div className="bg-primary text-white h-screen flex flex-col items-center justify-center">
         <img className="mb-10 w-[9rem]" src="/logo.png" alt="logo" />

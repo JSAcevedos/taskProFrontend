@@ -1,20 +1,19 @@
-import { BrowserRouter, Routes, Route } from "react-router";
-import PrivateRoute from './routes/PrivateRoute';
-import PublicRoute from './routes/PublicRoute';
-import Login from './pages/Login';
-import Tasks from './pages/Tasks';
-import NotFound from './pages/NotFound.jsx';
-import Register from "./pages/Register.jsx";
-import { ToastContainer } from "react-toastify";
-import Layout from "./components/Layout.jsx";
-import RecoveryPassword from "./pages/RecoveryPassword.jsx";
-import ResetPassword from "./pages/ResetPassword.jsx";
+import { Routes, Route } from "react-router"
+import PrivateRoute from './routes/PrivateRoute'
+import PublicRoute from './routes/PublicRoute'
+import Login from './pages/Login'
+import Tasks from './pages/Tasks'
+import NotFound from './pages/NotFound.jsx'
+import Register from "./pages/Register.jsx"
+import Layout from "./components/Layout.jsx"
+import RecoveryPassword from "./pages/RecoveryPassword.jsx"
+import ResetPassword from "./pages/ResetPassword.jsx"
+import Profile from "./pages/Profile.jsx"
 
 function App() {
 
   return (
     <>
-      <BrowserRouter>
         <Routes>
 
           <Route element={<PublicRoute/>}>
@@ -30,6 +29,7 @@ function App() {
             <Route element={<Layout />}>
 
               <Route path="/tasks" element={<Tasks />} />
+              <Route path="/profile" element={<Profile />} />
 
             </Route>
           </Route>
@@ -37,8 +37,6 @@ function App() {
           <Route path="*" element={<NotFound />} /> 
 
         </Routes>
-      </BrowserRouter>
-      <ToastContainer />
     </>
   )
 }

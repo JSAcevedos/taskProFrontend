@@ -1,11 +1,11 @@
-import { useState } from "react";
-import BackButton from "../components/BackButton";
-import Button from "../components/Button";
-import Loading from "../components/Loading";
-import PasswordInput from "../components/PasswordInput";
-import { toast } from "react-toastify";
-import { resetPassword } from "../requests/auth";
-import { useNavigate } from "react-router";
+import { useState } from "react"
+import BackButton from "../components/BackButton"
+import Button from "../components/Button"
+import Loading from "../components/Loading"
+import PasswordInput from "../components/PasswordInput"
+import { toast } from "react-toastify"
+import { resetPassword } from "../requests/auth"
+import { useNavigate } from "react-router"
 
 export default function ResetPassword() {
   const [isLoading, setIsLoading] = useState(false)

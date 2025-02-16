@@ -1,4 +1,4 @@
-import LoginForm from '../components/LoginForm';
+import LoginForm from '../components/LoginForm'
 
 export default function Login() {
   return (
@@ -13,5 +13,5 @@ export default function Login() {
 
       <LoginForm />
     </section>
-  );
+  )
 }

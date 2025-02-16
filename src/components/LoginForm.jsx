@@ -4,7 +4,7 @@ import Button from "./Button"
 import Input from "./Input"
 import Loading from "./Loading"
 import PasswordInput from "./PasswordInput"
-import { useNavigate } from "react-router"
+import { Link, useNavigate } from "react-router"
 
 export default function LoginForm() {
   const inputContainerClass = "flex flex-col text-xl"
@@ -47,8 +47,8 @@ export default function LoginForm() {
           </div>
           <Button value="Login" type="submit" />
           <div className="text-tertiary underline flex flex-col">
-            <a className="hover:text-white" href="/register">Dont have an account? Register here</a>
-            <a className="hover:text-white" href="/recovery-password">Forgot your password?</a>
+            <Link className="hover:text-white" to="/register">Dont have an account? Register here</Link>
+            <Link className="hover:text-white" to="/recovery-password">Forgot your password?</Link>
           </div>
         </form>
       </div>

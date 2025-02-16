@@ -1,10 +1,10 @@
-import { Outlet } from 'react-router';
-import NotFound from '../pages/NotFound';
+import { Outlet } from 'react-router'
+import NotFound from '../pages/NotFound'
 
 const PrivateRoute = ({ element: Component }) => {
-  const token = localStorage.getItem('authToken');
+  const token = localStorage.getItem('authToken')
 
-  return token ? <Outlet /> : <NotFound />;
-};
+  return token ? <Outlet /> : <NotFound />
+}
 
-export default PrivateRoute;
+export default PrivateRoute
