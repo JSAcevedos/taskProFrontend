@@ -41,8 +41,8 @@ export default function ResetPassword() {
         <BackButton />
         <h1 className="text-4xl mb-10 text-white text-center">Recovery Password</h1>
         <form className="bg-quaternary py-10 px-10 lg:px-20 mx-10 rounded-sm space-y-5" onSubmit={handleSubmit}>
-            <PasswordInput id="password" label="Password:" placeholder="Your password" mustValidateFormat={true}/>
-            <PasswordInput id="confirmPassword" label="Confirm password:" placeholder="Confirm your password"/>
+            <PasswordInput id="password" label="New password:" placeholder="Your password" mustValidateFormat={true}/>
+            <PasswordInput id="confirmPassword" label="Confirm new password:" placeholder="Confirm your password"/>
             <Button darkMode={true} value="Recover" type="submit" />
         </form>
     </div>
