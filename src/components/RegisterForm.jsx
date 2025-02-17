@@ -24,7 +24,7 @@ export default function RegisterForm({handleLoading}) {
       await register(name, email, password)
       .then((res) => {
         navigate("/")
-        toast.success("Successfully registered, you can login now!")
+        toast.success("Successfully registered, check your profile to save your id!")
       })
       .catch((error) => {
         toast.error("Registration failed: " + error.response.data)
