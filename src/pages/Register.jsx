@@ -10,10 +10,10 @@ export default function Register() {
     setIsLoading(() => state)
   }
   return (
-    <div className="bg-primary text-white h-full flex flex-col items-center overflow-auto p-[3rem]">
+    <div className="bg-primary text-white min-h-full min-h-screen flex flex-col items-center justify-center overflow-auto p-[3rem]">
         {isLoading && <Loading />}
         <BackButton />
-        <RegisterForm  handleLoading={handleLoading}/>
+        <RegisterForm handleLoading={handleLoading} />
     </div>
   )
 }
