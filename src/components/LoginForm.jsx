@@ -5,6 +5,7 @@ import Input from "./Input"
 import Loading from "./Loading"
 import PasswordInput from "./PasswordInput"
 import { Link, useNavigate } from "react-router"
+import { toast } from "react-toastify"
 
 export default function LoginForm() {
   const inputContainerClass = "flex flex-col text-xl"
@@ -28,6 +29,7 @@ export default function LoginForm() {
         localStorage.setItem('authToken', token)
         navigate("/tasks")
       })
+      .catch((error) => toast.error(error.response?.data || "Invalid data"))
       .finally(() => handleLoading(false))
     } catch (error) {
       console.error('Login failed:', error)
