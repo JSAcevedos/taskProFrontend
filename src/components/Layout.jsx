@@ -31,7 +31,7 @@ export default function Layout() {
           className={`lg:static fixed top-0 left-0 h-full w-[300px] lg:translate-x-0 transform transition-transform duration-300 z-[49] ${showBurgerMenu ? "translate-x-0" : "-translate-x-full"}`}>
           <Sidebar handleShowMenu={handleShowMenu} />
         </div>
-        <div className="w-full relative">
+        <div className="w-full relative overflow-auto">
           {isLoading && <Loading />}
           <Outlet handleLoading={handleLoading} />
         </div>

@@ -45,23 +45,20 @@ export default function UserForm({ nameValue, emailValue }) {
   }, [emailValue])
 
   return (
-    <div className="space-y-5">
-      <h1 className="text-xl">Update your data</h1>
-      <form className="space-y-5" onSubmit={handleSubmit}>
-        <Input
-          label="Name: "
-          value={currentName}
-          type="text"
-          onChange={(e) => setCurrentName(e.target.value)}
-        />
-        <Input
-          label="Email: "
-          value={currentEmail}
-          type="email"
-          onChange={(e) => setCurrentEmail(e.target.value)}
-        />
-        <Button value="Update Info" isDisabled={!valuesChanged} />
-      </form>
-    </div>
+    <form className="space-y-5" onSubmit={handleSubmit}>
+      <Input
+        label="Name: "
+        value={currentName}
+        type="text"
+        onChange={(e) => setCurrentName(e.target.value)}
+      />
+      <Input
+        label="Email: "
+        value={currentEmail}
+        type="email"
+        onChange={(e) => setCurrentEmail(e.target.value)}
+      />
+      <Button value="Update Info" isDisabled={!valuesChanged} />
+    </form>
   )
 }

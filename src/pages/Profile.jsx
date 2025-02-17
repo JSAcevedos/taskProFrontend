@@ -4,6 +4,8 @@ import LoadingContext from "../context/LoadingContext"
 import { toast } from "react-toastify"
 import UserForm from "../components/UserForm"
 import PasswordForm from "../components/PasswordForm"
+import DeleteAccountForm from "../components/DeleteAccountForm"
+import FormItem from "../components/FormItem"
 
 export default function Profile() {
   const handleLoading = useContext(LoadingContext)
@@ -28,10 +30,17 @@ export default function Profile() {
     
   return (
     <div className="flex w-full justify-center">
-      <div className="m-10 lg:m-20 mt-30 lg:mt-10 space-y-10 max-w-[40rem]">
+      <div className="m-10 lg:m-20 mt-30 lg:mt-10 space-y-10 max-w-[40rem] w-[40rem]">
           <h1 className="text-4xl">Welcome, {userData.name}</h1>
-          <UserForm nameValue={userData.name} emailValue={userData.email}/>
-          <PasswordForm />
+          <FormItem itemName="Update account information">
+            <UserForm nameValue={userData.name} emailValue={userData.email}/>
+          </FormItem>
+          <FormItem itemName="Update your password">
+            <PasswordForm />
+          </FormItem>
+          <FormItem itemName="Delete your account">
+            <DeleteAccountForm />
+          </FormItem>
       </div>
     </div>
   )

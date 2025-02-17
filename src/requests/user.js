@@ -38,3 +38,11 @@ export const updatePassword = async (password, newPassword) => {
         }
     )
 }
+
+export const deleteAcount = async (password) => {
+  return axiosInstance.delete('/user/delete-user',
+      {
+        password: password
+      }
+  )
+}
