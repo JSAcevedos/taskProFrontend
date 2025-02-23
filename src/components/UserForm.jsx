@@ -58,7 +58,7 @@ export default function UserForm({ nameValue, emailValue }) {
         type="email"
         onChange={(e) => setCurrentEmail(e.target.value)}
       />
-      <Button value="Update Info" isDisabled={!valuesChanged} />
+      <Button valueLabel="Update Info" isDisabled={!valuesChanged} />
     </form>
   )
 }

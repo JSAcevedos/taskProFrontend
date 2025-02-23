@@ -45,7 +45,7 @@ export default function LoginForm() {
           <div className={inputContainerClass}>
             <PasswordInput label="Password:" placeholder="Your password" id="password" />
           </div>
-          <Button value="Login" type="submit" />
+          <Button valueLabel="Login" type="submit" />
           <div className="text-tertiary underline flex flex-col">
             <Link className="hover:text-white" to="/register">Dont have an account? Register here</Link>
             <Link className="hover:text-white" to="/recovery-password">Forgot your password?</Link>

@@ -43,7 +43,7 @@ export default function RegisterForm({handleLoading}) {
             <Input id="email" placeholder="louis.smith@email.com" label="Email:" type="email"/>
             <PasswordInput id="password" placeholder="New password" label="Password" mustValidateFormat={true}/>
             <PasswordInput id="confirmPassword" placeholder="Confirm new password" label="Confirm Password"/>
-            <Button value="Register" type="submit" darkMode={true} />
+            <Button valueLabel="Register" type="submit" darkMode={true} />
         </form>
     </>
   )

@@ -43,7 +43,7 @@ export default function ResetPassword() {
         <form className="bg-quaternary py-10 px-10 lg:px-20 mx-10 rounded-sm space-y-5" onSubmit={handleSubmit}>
             <PasswordInput id="password" label="New password:" placeholder="Your password" mustValidateFormat={true}/>
             <PasswordInput id="confirmPassword" label="Confirm new password:" placeholder="Confirm your password"/>
-            <Button darkMode={true} value="Recover" type="submit" />
+            <Button darkMode={true} valueLabel="Recover" type="submit" />
         </form>
     </div>
   )

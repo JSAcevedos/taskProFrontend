@@ -53,7 +53,7 @@ export default function PasswordForm() {
             />
             <Button
                 type="submit"
-                value="Update Password"
+                valueLabel="Update Password"
                 isDisabled={isButtonDisabled}
             />
         </form>

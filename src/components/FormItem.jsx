@@ -1,12 +1,12 @@
-import { useState } from "react";
-import { MdArrowBackIos } from "react-icons/md";
+import { useState } from "react"
+import { MdArrowBackIos } from "react-icons/md"
 
 export default function FormItem({ itemName, children }) {
-  const [showForm, setShowForm] = useState(false);
+  const [showForm, setShowForm] = useState(false)
 
   const toggleForm = () => {
-    setShowForm((showForm) => !showForm);
-  };
+    setShowForm((showForm) => !showForm)
+  }
 
   return (
     <div>
@@ -21,5 +21,5 @@ export default function FormItem({ itemName, children }) {
       </button>
       <div className={`${!showForm && "hidden"}`}>{children}</div>
     </div>
-  );
+  )
 }

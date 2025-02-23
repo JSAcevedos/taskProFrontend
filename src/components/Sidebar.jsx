@@ -1,14 +1,21 @@
 import NavItem from "./NavItem"
-import { IoHome } from "react-icons/io5"
 import { FaPersonSkiing } from "react-icons/fa6"
-import { useLocation } from "react-router"
+import { useLocation, useNavigate } from "react-router"
+import { TbDoorExit } from "react-icons/tb"
+import { LiaClipboardListSolid } from "react-icons/lia"
 
 export default function Sidebar({handleShowMenu}) {
   const location = useLocation()
+  const navigate = useNavigate()
 
   const setActive = (route) => {
     return location.pathname === route ? "bg-tertiary text-black" : ""
   }
+
+  const logout = () => {
+    localStorage.removeItem('authToken')
+    navigate("/")
+}
 
   return (
     <nav className="bg-primary h-full text-white lg:pt-0 pt-17">
@@ -17,9 +24,10 @@ export default function Sidebar({handleShowMenu}) {
         <h1 className="text-4xl text-tertiary">TaskPro</h1>
       </div>
       <ul>
-        <NavItem onClick={() => handleShowMenu(false)} label="Home" href="/tasks" icon={IoHome} className={setActive("/tasks")} />
+        <NavItem onClick={() => handleShowMenu(false)} label="Tasks" href="/tasks" icon={LiaClipboardListSolid} className={setActive("/tasks")} />
         {/* <NavItem label="Add Task" href="/add-task" icon={FaPersonSkiing} className={setActive("/add-task")} /> */}
         <NavItem onClick={() => handleShowMenu(false)} label="Profile" href="/profile" icon={FaPersonSkiing} className={setActive("/profile")} />
+        <NavItem onClick={() => logout(false)} label="Log Out" icon={TbDoorExit} />
       </ul>
     </nav>
   )

@@ -51,7 +51,7 @@ export default function PasswordForm() {
             />
             <Button
                 type="submit"
-                value="Delete Account"
+                valueLabel="Delete Account"
                 customBackground="bg-alert"
                 addCustomHoverBackground={true}
                 className="hover:bg-alert-hover"

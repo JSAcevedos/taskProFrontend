@@ -37,7 +37,7 @@ export default function RecoveryPassword() {
         <form className="bg-quaternary py-10 px-10 lg:px-20 mx-10 rounded-sm space-y-5" onSubmit={handleSubmit}>
             <Input id="email" label="Email:" placeholder="email@email.com" type="email"/>
             <Input id="userId" label="Account id:" placeholder="fbc9f65b-24c6-4610-8732-1c45182833fd" type="text" />
-            <Button darkMode={true} value="Recover" type="submit" />
+            <Button darkMode={true} valueLabel="Recover" type="submit" />
         </form>
     </div>
   )
