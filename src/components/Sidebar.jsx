@@ -3,6 +3,7 @@ import { FaPersonSkiing } from "react-icons/fa6"
 import { useLocation, useNavigate } from "react-router"
 import { TbDoorExit } from "react-icons/tb"
 import { LiaClipboardListSolid } from "react-icons/lia"
+import { MdOutlineAddCircleOutline } from "react-icons/md"
 
 export default function Sidebar({handleShowMenu}) {
   const location = useLocation()
@@ -25,7 +26,7 @@ export default function Sidebar({handleShowMenu}) {
       </div>
       <ul>
         <NavItem onClick={() => handleShowMenu(false)} label="Tasks" href="/tasks" icon={LiaClipboardListSolid} className={setActive("/tasks")} />
-        {/* <NavItem label="Add Task" href="/add-task" icon={FaPersonSkiing} className={setActive("/add-task")} /> */}
+        <NavItem onClick={() => handleShowMenu(false)} label="Add Task" href="/add-task" icon={MdOutlineAddCircleOutline} className={setActive("/add-task")} />
         <NavItem onClick={() => handleShowMenu(false)} label="Profile" href="/profile" icon={FaPersonSkiing} className={setActive("/profile")} />
         <NavItem onClick={() => logout(false)} label="Log Out" icon={TbDoorExit} />
       </ul>

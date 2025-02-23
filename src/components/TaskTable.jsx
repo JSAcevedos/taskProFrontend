@@ -7,6 +7,7 @@ import TaskCard from "./TaskCard"
 import Checkbox from "./Checkbox"
 import Button from "./Button"
 import ConfirmationModal from "./ConfirmationModal"
+import { useNavigate } from "react-router"
 
 export default function TaskTable() {
   const [tasks, setTasks] = useState([])
@@ -15,6 +16,7 @@ export default function TaskTable() {
   const [checkedTasks, setCheckedTasks] = useState({})
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [modalAction, setModalAction] = useState(null)
+  const navigate = useNavigate()
   const generalButtonsClass = "max-w-[9rem] w-[9rem] py-1"
 
   const checkHandler = () => {
@@ -136,7 +138,12 @@ export default function TaskTable() {
         />
       </div>
       {tasks.length === 0 ? (
-        <p className="text-center">No task created</p>
+        <>
+          <div className="flex flex-col items-center">
+            <p className="text-center my-5 text-xl">No task created</p>
+            <Button className="max-w-70" valueLabel="Create a task" onClick={() => navigate("/add-task")} />
+          </div>
+        </>
       ) : (
         <>
           <div className="hidden lg:block max-h-[35rem] overflow-auto">

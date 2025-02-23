@@ -9,6 +9,8 @@ import Layout from "./components/Layout.jsx"
 import RecoveryPassword from "./pages/RecoveryPassword.jsx"
 import ResetPassword from "./pages/ResetPassword.jsx"
 import Profile from "./pages/Profile.jsx"
+import Task from "./pages/Task.jsx"
+import AddTask from "./pages/AddTask.jsx"
 
 function App() {
 
@@ -29,6 +31,8 @@ function App() {
             <Route element={<Layout />}>
 
               <Route path="/tasks" element={<Tasks />} />
+              <Route path="/task/:taskId" element={<Task />} />
+              <Route path="/add-task" element={<AddTask />} />
               <Route path="/profile" element={<Profile />} />
 
             </Route>
