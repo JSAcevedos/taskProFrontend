@@ -3,10 +3,13 @@ import { register } from "../requests/auth"
 import Button from "./Button"
 import Input from "./Input"
 import PasswordInput from "./PasswordInput"
+import PasswordRequirements from "./PasswordRequirements"
 import { Link, useNavigate } from "react-router"
+import { useState } from "react"
 
 export default function RegisterForm({handleLoading}) {
   const navigate = useNavigate()
+  const [password, setPassword] = useState('')
 
   const handleSubmit = async (event) => {
     handleLoading(true)
@@ -41,7 +44,8 @@ export default function RegisterForm({handleLoading}) {
             <h1 className="text-3xl mb-7 text-center text-black">Register in <Link to="/" className="text-tertiary hover:text-secondary underline">TaskPro</Link></h1>
             <Input id="name" placeholder="Louis Smith" label="Name:" type="text"/>
             <Input id="email" placeholder="louis.smith@email.com" label="Email:" type="email"/>
-            <PasswordInput id="password" placeholder="New password" label="Password" mustValidateFormat={true}/>
+            <PasswordInput id="password" placeholder="New password" label="Password" mustValidateFormat={true} onChange={(e) => setPassword(e.target.value)}/>
+            <PasswordRequirements password={password} />
             <PasswordInput id="confirmPassword" placeholder="Confirm new password" label="Confirm Password"/>
             <Button valueLabel="Register" type="submit" darkMode={true} />
         </form>

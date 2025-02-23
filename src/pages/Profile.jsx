@@ -37,6 +37,7 @@ export default function Profile() {
             <UserForm nameValue={userData.name} emailValue={userData.email}/>
           </FormItem>
           <FormItem itemName="Update your password">
+            <p className="my-3 p-3 border border-secondary">The form will be available if the new password is different than the current one</p>
             <PasswordForm />
           </FormItem>
           <FormItem itemName="Delete your account">

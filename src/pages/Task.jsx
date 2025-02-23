@@ -101,10 +101,10 @@ export default function Task() {
             <label>Priority:</label>
             <PriorityButtons selectedPriority={task.priority} onSelectPriority={handleSelectPriority} />
             <Input type="date" label="Due Date:" value={task.dueDate} onChange={(event) => setTask({...task, dueDate:event.target.value})} />
-            <label>
+            <div className="flex items-center">
                 <Checkbox id="completed" isChecked={task.completed} checkHandler={(event) => setTask({...task, completed:event.target.checked})} />
-                Completed
-            </label>
+                <span className="ml-2">Completed</span>
+            </div>
             <div className="flex lg:flex-row flex-col lg:space-x-5 lg:space-y-0 space-y-5 mt-5">
                 <Button valueLabel="Update Task" isDisabled={!isModified} onClick={handleUpdateTask} />
                 <Button valueLabel="Delete Task" customBackground="bg-alert" addCustomHoverBackground={true} className="hover:bg-alert-hover" onClick={openModal} />

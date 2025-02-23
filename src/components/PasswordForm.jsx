@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import PasswordInput from "./PasswordInput"
 import Button from "./Button"
+import PasswordRequirements from "./PasswordRequirements"
 import { updatePassword } from "../requests/user"
 import { toast } from "react-toastify"
 import LoadingContext from "../context/LoadingContext"
@@ -45,6 +46,7 @@ export default function PasswordForm() {
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
             />
+            <PasswordRequirements password={newPassword} />
             <PasswordInput
                 id="confirmNewPassword"
                 label="Confirm New Password:"

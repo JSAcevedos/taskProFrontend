@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function PasswordInput({ label, mustValidateFormat = false, ...props }) {
+export default function PasswordInput({ label, mustValidateFormat = false, onChange, ...props }) {
   const inputClass = "rounded-sm p-3 bg-transparent text-black w-full"
   const [showPassword, setShowPassword] = useState(false)
   const [password, setPassword] = useState("")
@@ -12,7 +12,11 @@ export default function PasswordInput({ label, mustValidateFormat = false, ...pr
   }
 
   const handlePasswordChange = (e) => {
-    setPassword(() => e.target.value)
+    const newPassword = e.target.value
+    setPassword(newPassword)
+    if (onChange) {
+      onChange(e)
+    }
   }
 
   return (

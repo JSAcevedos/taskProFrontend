@@ -23,6 +23,11 @@ export default function AddTask() {
 
   const handleCreateTask = async (event) => {
     event.preventDefault()
+    const today = new Date().toISOString().split('T')[0]
+    if (task.dueDate < today) {
+      toast.error('Due date cannot be in the past')
+      return
+    }
     try {
       await createTask(task)
       toast.success('Task created successfully')
@@ -51,6 +56,7 @@ export default function AddTask() {
           type="date" 
           label="Due Date:" 
           value={task.dueDate} 
+          min={new Date().toISOString().split('T')[0]}
           onChange={(event) => setTask({ ...task, dueDate: event.target.value })} 
         />
         <label>Priority:</label>
