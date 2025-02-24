@@ -20,6 +20,7 @@ export default function RegisterForm({handleLoading}) {
     const confirmPassword = event.target.confirmPassword.value
 
     if(password !== confirmPassword){
+      toast.error("Passwords do not match")
       return
     }
 
