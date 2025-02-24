@@ -100,7 +100,7 @@ export default function Task() {
             <TextArea label="Description:" value={task.description} onChange={(event) => setTask({...task, description:event.target.value})} />
             <label>Priority:</label>
             <PriorityButtons selectedPriority={task.priority} onSelectPriority={handleSelectPriority} />
-            <Input type="date" label="Due Date:" value={task.dueDate} onChange={(event) => setTask({...task, dueDate:event.target.value})} />
+            <Input type="date" label="Due Date:" value={task.dueDate} onChange={(event) => setTask({...task, dueDate:event.target.value})} min={new Date().toISOString().split('T')[0]}/>
             <div className="flex items-center">
                 <Checkbox id="completed" isChecked={task.completed} checkHandler={(event) => setTask({...task, completed:event.target.checked})} />
                 <span className="ml-2">Completed</span>
