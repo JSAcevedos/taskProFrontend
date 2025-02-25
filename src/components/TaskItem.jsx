@@ -3,7 +3,7 @@ import Checkbox from "./Checkbox"
 import Button from "./Button"
 import { toggleTaskCompletion } from "../requests/task"
 
-export default function TaskItem({ id, title, dueDate, completed, isChecked, handleTaskCheck, updateTaskCompletion }) {
+export default function TaskItem({ id, title, dueDate, completed, priority, isChecked, handleTaskCheck, updateTaskCompletion }) {
   const navigate = useNavigate()
   
   const onCheckboxChange = (e) => {
@@ -28,7 +28,7 @@ export default function TaskItem({ id, title, dueDate, completed, isChecked, han
       </td>
       <td>{title}</td>
       <td>{dueDate.split("T")[0]}</td>
-      <td>{completed ? "Yes" : "No"}</td>
+      <td>{priority}</td>
       <td>
         <Button onClick={handleButtonClick} className="py-1 max-w-[9rem] opacity-100" valueLabel={completed ? "Undo" : "Complete"} />
       </td>

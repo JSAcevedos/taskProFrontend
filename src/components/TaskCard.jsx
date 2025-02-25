@@ -3,7 +3,7 @@ import Checkbox from "./Checkbox"
 import Button from "./Button"
 import { toggleTaskCompletion } from "../requests/task"
 
-export default function TaskCard({ id, title, dueDate, completed, isChecked, handleTaskCheck, updateTaskCompletion }) {
+export default function TaskCard({ id, title, dueDate, completed, priority, isChecked, handleTaskCheck, updateTaskCompletion }) {
   const navigate = useNavigate()
 
   const onCheckboxChange = (e) => {
@@ -33,6 +33,7 @@ export default function TaskCard({ id, title, dueDate, completed, isChecked, han
         <h3 className="text-lg font-semibold">{title}</h3>
         <p className="text-sm">{dueDate.split("T")[0]}</p>
         <p className="text-sm">{completed ? "Completed" : "Not Completed"}</p>
+        <p className="text-sm">{`Priority: ${priority}`}</p>
       </div>
       <div className="flex justify-end mt-4 no-underline">
         <Button 
