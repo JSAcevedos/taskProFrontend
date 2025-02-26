@@ -1,15 +1,4 @@
 export const filterAndSortTasks = (tasks, filter, sort) => {
-  if (!filter && !sort) {
-    return tasks
-      .filter(task => !task.completed)
-      .sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate))
-      .concat(
-        tasks
-          .filter(task => task.completed)
-          .sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate))
-      )
-  }
-
   let updatedTasks = [...tasks]
 
   if (filter) {
@@ -41,5 +30,8 @@ export const filterAndSortTasks = (tasks, filter, sort) => {
     updatedTasks.sort((a, b) => a.completed - b.completed)
   }
 
-  return updatedTasks
+  const notCompletedTasks = updatedTasks.filter(task => !task.completed)
+  const completedTasks = updatedTasks.filter(task => task.completed)
+
+  return notCompletedTasks.concat(completedTasks)
 }
