@@ -26,8 +26,10 @@ export const filterAndSortTasks = (tasks, filter, sort) => {
       const dateComparison = new Date(a.dueDate) - new Date(b.dueDate)
       return dateComparison
     })
-  } else if (sort === 'status') {
-    updatedTasks.sort((a, b) => a.completed - b.completed)
+  } else if (sort === 'nameAsc') {
+    updatedTasks.sort((a, b) => a.title.localeCompare(b.title))
+  } else if (sort === 'nameDesc') {
+    updatedTasks.sort((a, b) => b.title.localeCompare(a.title))
   }
 
   const notCompletedTasks = updatedTasks.filter(task => !task.completed)

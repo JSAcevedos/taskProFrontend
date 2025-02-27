@@ -10,7 +10,8 @@ export default function TaskFilterSort({ onFilterChange, onSortChange }) {
     { value: '', label: 'Select' },
     { value: 'date', label: 'Date' },
     { value: 'priority', label: 'Priority' },
-    { value: 'status', label: 'Status' },
+    { value: 'nameAsc', label: 'Name A-Z' },
+    { value: 'nameDesc', label: 'Name Z-A' },
   ]
 
   const handleFilterChange = (e) => {
