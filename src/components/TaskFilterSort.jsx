@@ -7,8 +7,7 @@ export default function TaskFilterSort({ onFilterChange, onSortChange }) {
   const [filter, setFilter] = useState('')
 
   const sortOptions = [
-    { value: '', label: 'Select' },
-    { value: 'date', label: 'Date' },
+    { value: '', label: 'Date' },
     { value: 'priority', label: 'Priority' },
     { value: 'nameAsc', label: 'Name A-Z' },
     { value: 'nameDesc', label: 'Name Z-A' },
