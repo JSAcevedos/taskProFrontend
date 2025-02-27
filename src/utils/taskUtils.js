@@ -8,16 +8,7 @@ export const filterAndSortTasks = (tasks, filter, sort) => {
     )
   }
 
-  if (sort === 'date') {
-    updatedTasks.sort((a, b) => {
-      const dateComparison = new Date(a.dueDate) - new Date(b.dueDate)
-      if (dateComparison !== 0) {
-        return dateComparison
-      }
-      const priorityComparison = b.priority - a.priority
-      return priorityComparison
-    })
-  } else if (sort === 'priority') {
+  if (sort === 'priority') {
     updatedTasks.sort((a, b) => {
       const priorityComparison = b.priority - a.priority
       if (priorityComparison !== 0) {
@@ -30,6 +21,15 @@ export const filterAndSortTasks = (tasks, filter, sort) => {
     updatedTasks.sort((a, b) => a.title.localeCompare(b.title))
   } else if (sort === 'nameDesc') {
     updatedTasks.sort((a, b) => b.title.localeCompare(a.title))
+  } else {
+    updatedTasks.sort((a, b) => {
+      const dateComparison = new Date(a.dueDate) - new Date(b.dueDate)
+      if (dateComparison !== 0) {
+        return dateComparison
+      }
+      const priorityComparison = b.priority - a.priority
+      return priorityComparison
+    })
   }
 
   const notCompletedTasks = updatedTasks.filter(task => !task.completed)

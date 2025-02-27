@@ -2,7 +2,18 @@ import TaskItem from "./TaskItem"
 import TaskCard from "./TaskCard"
 import Checkbox from "./Checkbox"
 
+const isTaskPastDue = (task) => {
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+  const dueDate = new Date(task.dueDate)
+  dueDate.setDate(dueDate.getDate() + 1)
+  dueDate.setHours(0, 0, 0, 0)
+  return !task.completed && dueDate < today
+}
+
 export default function TaskTable({ tasks, isAllChecked, checkedTasks, checkHandler, handleTaskCheck, updateTaskCompletion }) {
+  const hasPastDueTasks = tasks.some(isTaskPastDue)
+
   return (
     <div className="w-full max-w-400 px-10 py-20">
       {tasks.length === 0 ? (
@@ -13,6 +24,12 @@ export default function TaskTable({ tasks, isAllChecked, checkedTasks, checkHand
         </>
       ) : (
         <>
+          {hasPastDueTasks && (
+            <div className="mb-4 p-4 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700">
+              <p className="font-bold">Info</p>
+              <p>Tasks with a yellow background are past due.</p>
+            </div>
+          )}
           <div className="hidden lg:block max-h-[35rem] overflow-auto">
             <table className="table-fixed w-full text-center">
               <thead>
@@ -36,6 +53,7 @@ export default function TaskTable({ tasks, isAllChecked, checkedTasks, checkHand
                     isChecked={checkedTasks[task._id]}
                     handleTaskCheck={handleTaskCheck}
                     updateTaskCompletion={updateTaskCompletion}
+                    isPastDue={isTaskPastDue(task)}
                   />
                 ))}
               </tbody>
@@ -57,6 +75,7 @@ export default function TaskTable({ tasks, isAllChecked, checkedTasks, checkHand
                 isChecked={checkedTasks[task._id]}
                 handleTaskCheck={handleTaskCheck}
                 updateTaskCompletion={updateTaskCompletion}
+                isPastDue={isTaskPastDue(task)}
               />
             ))}
           </div>

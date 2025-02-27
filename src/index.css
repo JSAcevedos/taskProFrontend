@@ -17,6 +17,8 @@ html, body, #root {
   --color-quaternary: #EFE3C2;
   --color-alert: #EC1313;
   --color-alert-hover: #E76F6F;
+  --color-past-due: #FFCC00;
+  --color-past-due-hover: #F7E186;
   --animate-levitate: levitate 3s ease-in-out infinite;
 }
 

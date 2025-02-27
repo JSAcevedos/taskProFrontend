@@ -3,7 +3,7 @@ import Checkbox from "./Checkbox"
 import Button from "./Button"
 import { toggleTaskCompletion } from "../requests/task"
 
-export default function TaskCard({ id, title, dueDate, completed, priority, isChecked, handleTaskCheck, updateTaskCompletion }) {
+export default function TaskCard({ id, title, dueDate, completed, priority, isChecked, handleTaskCheck, updateTaskCompletion, isPastDue }) {
   const navigate = useNavigate()
 
   const onCheckboxChange = (e) => {
@@ -24,7 +24,7 @@ export default function TaskCard({ id, title, dueDate, completed, priority, isCh
   return (
     <div 
       onClick={() => navigate(`/task/${id}`)} 
-      className={`border-2 border-secondary p-4 mb-4 rounded-lg cursor-pointer hover:bg-gray-100 ${completed ? "line-through text-secondary" : ""}`}
+      className={`border-2 border-secondary p-4 mb-4 rounded-lg cursor-pointer hover:bg-gray-100 ${completed ? "line-through text-secondary" : ""} ${isPastDue && !completed ? "bg-past-due hover:bg-past-due-hover" : ""}`}
     >
       <div className="flex justify-between items-center mb-2">
         <Checkbox isChecked={isChecked} checkHandler={onCheckboxChange} onClick={handleCheckboxClick} />
