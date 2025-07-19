@@ -1,10 +1,11 @@
 import axios from "axios"
 import { config } from "../config/config"
 
-export const login = async (email, password) => {
+export const login = async (email, password, captchaToken) => {
     return axios.post(config.apiUrl + '/user/login', {
         email: email,
-        password: password
+        password: password,
+        captchaToken: captchaToken
     })
 }
 
