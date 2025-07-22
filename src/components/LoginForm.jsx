@@ -51,11 +51,27 @@ export default function LoginForm() {
       navigate("/tasks");
     } catch (error) {
       console.error("Login failed:", error);
-      const errorMessage =
-        error.response?.data ||
-        error.message ||
-        "Ocurrió un error durante el login";
-      setLoginErrorMessage(errorMessage)
+      
+      let errorMessage = "Ocurrió un error durante el login";
+      
+      if (error.response?.status === 429) {
+        // Manejar específicamente el error 429 (Too Many Requests)
+        errorMessage = error.response?.data?.error || "You have made too many requests at the last minute. Please try again later.";
+      } else if(error.response?.status === 500) {
+        // Manejar errores de validación
+        errorMessage = "Invalid email or password";
+      }else if (error.response?.data?.error) {
+        // Manejar otros errores del servidor
+        errorMessage = error.response.data.error;
+      } else if (error.response?.data?.message) {
+        // Manejar mensajes alternativos del servidor
+        errorMessage = error.response.data.message;
+      } else if (error.message) {
+        // Manejar errores de red u otros errores
+        errorMessage = error.message;
+      }
+      
+      setLoginErrorMessage(errorMessage);
       resetCaptcha();
       
     } finally {
@@ -81,7 +97,7 @@ export default function LoginForm() {
             ref={recaptchaRef}
           />
           {loginErrorMessage && (
-          <div className="text-red-500 text-sm font-semibold">
+          <div className="text-red-700 bg-red-50 text-sm font-semibold p-3 border-l-4 border-red-500">
             {loginErrorMessage}
           </div>
         )}
